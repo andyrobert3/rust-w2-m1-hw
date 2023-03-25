@@ -30,10 +30,10 @@ fn increase_balance<T:Balance>(balance: &T, increase_amount: u32) -> Result<u32,
       Err("Increase must be less than 10!".to_string())
    }
 
-   // Experimental "exclusive_range_pattern" 
+   // Experimental "exclusive_range_pattern" for 0..10 condition
    // https://doc.rust-lang.org/beta/unstable-book/language-features/exclusive-range-pattern.html
    // match increase_amount {
-   //    0..10 => Ok(balance_type.get_balance() + increase_amount),
+   //    0..10 => Ok(balance.get_balance() + increase_amount),
    //    _ => Err("Increase must be less than 10!".to_string())
    // }
 }
@@ -42,7 +42,7 @@ fn main() {
    // create user_account, and set his age as Option::None
    let user_account = UserAccount {
       name: "Matthew".to_string(),
-      age: Option::None 
+      age: Option::Some(10) 
    };
 
    // You want to increase the user_account's balance by 11
